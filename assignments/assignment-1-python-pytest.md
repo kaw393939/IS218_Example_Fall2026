@@ -1,5 +1,7 @@
 # Assignment 1: Set Up a Python Project with GitHub Issues and pytest
 
+[Back to README](../README.md)
+
 ## Purpose
 
 Build a minimal Python project while practicing an issue-by-issue development workflow:
@@ -14,13 +16,31 @@ The finished project will contain one Python function, one automated test, and i
 
 Complete **[Assignment 0 for Windows](assignment-0-windows.md)** or
 **[Assignment 0 for Mac](assignment-0-mac.md)** first. Both paths join here for
-Assignment 1. Use your existing class repository, with Git, Python 3, VS Code, and GitHub SSH access ready. This repository contains a completed example; do your assignment work in your own class repository.
+Assignment 1. Use your own class repository from Assignment 0, with Git, Python 3,
+VS Code, and GitHub SSH access ready. This instructor repository contains a
+completed example; do your assignment work in your own assigned repository.
+If your assigned starter already contains the completed function and test, ask
+your instructor which starting repository to use before making the four issues.
 
-Open a terminal in your repository’s root folder and open the project:
+Open a terminal and return to the repository you cloned in Assignment 0. If you
+chose a different folder name, substitute that path:
 
 ```bash
+cd ~/projects/class-project
+pwd
+git status
 code .
 ```
+
+The **repository root** is this folder, which contains the hidden `.git`
+directory. Run all project commands here. Open VS Code's **Terminal → New
+Terminal** for a terminal in the project window.
+
+When a step asks you to create a file, use VS Code's Explorer **New File** action
+or `vi FILENAME` from the terminal. Save each file before running commands.
+Copy only the contents of a code block, not its backticks or language label.
+Filenames must match exactly, including `.gitignore`'s leading dot; avoid extra
+extensions such as `.txt`. Preserve Python indentation as shown.
 
 For this exercise, work on your repository’s default branch. Creating branches and pull requests is outside the scope of this handout.
 
@@ -42,6 +62,11 @@ Before changing any project files, create these four issues in your repository.
 | 4     | Complete the documentation and verify a fresh clone | Finish the README and confirm the project works in a new clone.       |
 
 On GitHub, open your repository and select **Issues → New issue**. Choose a blank issue when available. Use the titles above and copy the corresponding issue descriptions from the following parts. Assign the issues to yourself when that option is available. ([GitHub Docs][1])
+
+If **Issues** is missing, check that you opened your assigned repository. Ask
+the instructor or repository owner to enable issues if needed. Paste only the
+issue-description checklist into each issue; the following lettered sections
+are the instructions for carrying out that work.
 
 **GitHub assigns the issue numbers.** The examples below assume your issues are `#1`, `#2`, `#3`, and `#4`. Replace those numbers with the actual numbers in your repository.
 
@@ -126,8 +151,14 @@ Replace `#1` with this issue’s actual number.
 git status
 git add README.md .gitignore
 git commit -m "Create the repository foundation #1"
-git push
+git push -u origin HEAD
 ```
+
+This first push sets the upstream tracking branch, including when you cloned an
+empty repository. `HEAD` refers to your current branch here, and `origin` is
+the remote created by cloning. Later pushes can use `git push`. See
+[Git's push documentation](https://git-scm.com/docs/git-push). If Git says there is nothing
+to commit, check that you saved the files and that `git status` lists your changes.
 
 **Verify:** Open the repository on GitHub and confirm that the README and `.gitignore` contain your changes. Complete the issue’s checklist, add your verification comment, and close it.
 
@@ -152,7 +183,9 @@ Create a local Python virtual environment and install pytest.
 
 A virtual environment gives the project its own Python environment and installed packages. It is local to your computer and should be recreated—not committed to Git. ([Python documentation][6])
 
-Run the commands for your platform **from the repository root**.
+From the repository root, check `python3 --version`. Use the Python 3.12 version
+selected in Assignment 0, unless your instructor specified another version.
+Then run these shared commands.
 
 ### macOS, Linux, or Ubuntu in WSL2
 
@@ -170,6 +203,14 @@ python -c "import sys; print(sys.executable)"
 ```
 
 The displayed path should point inside this project’s `.venv` folder.
+
+In VS Code, open the Command Palette (**View → Command Palette**), choose
+**Python: Select Interpreter**, and select `.venv/bin/python` in this repository.
+If it is missing from the list, use **Enter interpreter path** to choose it.
+The Microsoft Python extension from Assignment 0 supplies this command. See
+[VS Code's environment guide](https://code.visualstudio.com/docs/python/environments).
+The terminal's activation and the editor's interpreter selection should point
+to the same environment.
 
 ## B. Create `requirements.txt`
 
@@ -251,7 +292,7 @@ def add(a: int, b: int) -> int:
 Create the folder from the repository root:
 
 ```bash
-mkdir tests
+mkdir -p tests
 ```
 
 Inside it, create `test_app.py`:
@@ -299,6 +340,11 @@ python -m pytest
 The test should now fail. Read the output and locate the comparison between the actual and expected values.
 
 Restore the expected result to `5`, save the file, and rerun the test. Confirm that it passes again.
+
+If a very rapid edit-and-restore produces output mentioning the old expectation,
+delete only the generated `tests/__pycache__` folder in VS Code and rerun. Python
+can reuse a cached version when same-size edits happen within one timestamp interval.
+See [Python's cache validation explanation](https://docs.python.org/3/reference/import.html#cached-bytecode-invalidation).
 
 **Do not commit the intentionally incorrect expectation.**
 
@@ -378,11 +424,17 @@ git push
 
 ## C. Verify a fresh clone
 
-Use a terminal with no virtual environment active. Work from a folder **outside** your original repository.
+Run `deactivate` if your virtual environment is active, then move outside your
+original repository. If you opened a new terminal with no environment active,
+skip `deactivate`.
 
-Copy your repository’s clone URL from GitHub. Replace `YOUR_REPOSITORY_URL` below with that URL. Use a destination folder that does not already exist.
+Copy your own repository's **SSH** clone URL from GitHub. Replace
+`YOUR_REPOSITORY_URL` below with it. Use a destination folder that does not
+already exist; for a repeat attempt choose `python-setup-check-2` and update
+both the clone destination and following `cd` command.
 
 ```bash
+cd ~/projects
 git clone YOUR_REPOSITORY_URL python-setup-check
 cd python-setup-check
 ```
@@ -427,6 +479,10 @@ working tree.
 
 Complete the checklist and close the issue.
 
+Run `deactivate` in the verification copy when finished. Return to your original
+working copy with `cd ~/projects/class-project` (or your chosen path) for later
+work; the fresh clone was a separate verification copy.
+
 ---
 
 # Completion Check
@@ -434,6 +490,11 @@ Complete the checklist and close the issue.
 You are finished when you have **four completed GitHub issues**, **at least four new commits—one or more per issue—and one test that passes from a fresh clone**.
 
 Each issue should show what you planned, which commit completed the work, and how you verified it.
+
+Submit your repository URL and links to the four closed issues through your
+instructor's designated submission location. Include the fresh-clone verification
+comment in the fourth issue. Due dates and submission location come from your
+course instructions.
 
 Be ready to explain why `.venv` is not committed, how pytest detects a failed expectation, and the difference between referencing an issue with `#3` and automatically closing it with `Closes #3`.
 

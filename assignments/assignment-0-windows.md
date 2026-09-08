@@ -27,18 +27,29 @@ not received one, complete the local exercises while obtaining it from your inst
 
 Complete this page in order, including its linked handouts. Run commands one
 at a time and read their output. Do not type a shell prompt such as `$`.
+Replace labels such as `YOUR_GITHUB_EMAIL` with your own information. Blocks marked
+with a language show what belongs in a terminal or file; the backticks are not
+part of the command. Wait for the prompt to return before running the next step.
+If a command fails, resolve that error before continuing.
+
+Save screenshots or copy the requested output as you finish each checkpoint;
+you will submit this evidence at the end.
 
 ## 1. Install WSL2, Ubuntu, and development tools
 
 Use a Windows version supported by [Microsoft's WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install).
-Open **PowerShell as Administrator**, run the following, and restart if prompted:
+If Ubuntu is already installed, start with `wsl --list --verbose` in PowerShell
+and reuse it when it shows version 2. Otherwise, open **PowerShell as
+Administrator**, run the following, and restart if prompted:
 
 ```powershell
 wsl --install -d Ubuntu
 ```
 
 Open Ubuntu from the Start menu and create its Linux username and password.
-Password characters do not appear while typing. In PowerShell, check:
+This is a Linux account; its password can differ from your Windows password.
+Password characters do not appear while typing. `sudo` will ask for this Linux
+password when installing tools. In PowerShell, check:
 
 ```powershell
 wsl --list --verbose
@@ -57,11 +68,17 @@ git --version
 python3 --version
 ```
 
+`git --version` and `python3 --version` should each print a version number.
+The initial Python version may differ from the course version; select it in section 2.
+
 The development libraries support building Python with pyenv; consult its
 [build environment guide](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
 if a build reports a missing library.
 
 Install [VS Code on Windows and its WSL extension](https://code.visualstudio.com/docs/remote/wsl).
+In the Windows installer, keep **Add to PATH** selected. Open VS Code, select
+Extensions, search for **WSL**, and install the extension published by Microsoft.
+Close and reopen Ubuntu afterward so it can find the `code` command.
 Keep class projects in Ubuntu's home directory, such as `~/projects`, and launch
 the editor from Ubuntu using `code .`. The editor should indicate a WSL connection.
 
@@ -82,7 +99,7 @@ Close and reopen your Ubuntu terminal, then run:
 
 ```bash
 pyenv --version
-pyenv install 3.12
+pyenv install -s 3.12
 pyenv global 3.12
 python --version
 python3 --version
@@ -92,12 +109,17 @@ python3 --version
 series; record the full version printed on your machine. This example project
 was tested with 3.12.7, but that exact patch is not required.
 
-Practice switching versions in a disposable folder, with no virtual environment active:
+Installing Python can take several minutes while it builds. The `-s` option
+skips installation if that exact version is already installed. If you see
+`BUILD FAILED`, resolve the reported build dependency problem before continuing.
+
+Practice switching versions in a disposable folder. If your prompt shows an
+active virtual environment such as `(.venv)`, run `deactivate` first:
 
 ```bash
 mkdir -p ~/terminal-practice/python-versions
 cd ~/terminal-practice/python-versions
-pyenv install 3.13
+pyenv install -s 3.13
 pyenv local 3.13
 python --version
 pyenv local 3.12
@@ -108,26 +130,23 @@ pyenv which python
 
 `global` sets your user's default; `local` writes a `.python-version` file for
 that folder and its descendants. The exercise leaves the practice folder on
-3.12. See [pyenv's installation and usage guide](https://github.com/pyenv/pyenv).
+3.12. Capture the two `python --version` results as your switching evidence.
+See [pyenv's installation and usage guide](https://github.com/pyenv/pyenv).
 
-A `.venv` uses the interpreter with which it was created. Switching pyenv does
-not change an existing environment. For a later project version change, run
-`deactivate` if active, select the new version, and recreate `.venv` before
-reinstalling requirements. You can preserve the old environment temporarily:
+A `.venv` uses the Python interpreter with which it was created. Changing the
+selected version does not update an existing virtual environment. Assignment 1
+will create your first project environment after you choose Python 3.12. For a
+future version change, you will recreate the environment and reinstall its
+requirements. No virtual environment commands are needed in Assignment 0.
+See [Python's virtual environment documentation](https://docs.python.org/3/library/venv.html).
 
-```bash
-mv .venv .venv-backup
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
+## 3. Practice the terminal and vi
 
-This later-project example requires an existing `.venv` and `requirements.txt`;
-skip it for Assignment 0. Keep `.venv-backup/` out of commits by adding it to
-`.git/info/exclude` if you use this approach. See
-[Python's virtual environment documentation](https://docs.python.org/3/library/venv.html).
+Complete the exercise in the [terminal and vi handout](../handouts/terminal-and-vi.md).
+Be able to explain your current directory, move between directories, edit and
+save a file with vi, and quit without saving an unwanted change.
 
-## 3. Configure Git and GitHub SSH access
+## 4. Configure Git and GitHub SSH access
 
 Run these in Ubuntu, replacing the sample identity with yours:
 
@@ -146,15 +165,12 @@ authentication is a separate step.
 Complete the [GitHub SSH handout for Windows](../handouts/github-ssh-windows.md).
 Confirm `ssh -T git@github.com` identifies your GitHub username.
 
-## 4. Practice the terminal and vi
-
-Complete the exercise in the [terminal and vi handout](../handouts/terminal-and-vi.md).
-Be able to explain your current directory, move between directories, edit and
-save a file with vi, and quit without saving an unwanted change.
-
 ## 5. Clone your class repository and open VS Code
 
-On GitHub, open your own class repository and select **Code → SSH**. Copy the URL.
+On GitHub, open your own assigned class repository, not the instructor's example.
+Select **Code → SSH** and copy the URL. An empty repository instead shows an SSH
+URL in **Quick setup**. If you already cloned your class repository, open its
+existing folder and skip the first four commands below; start with `pwd`.
 Replace `YOUR_SSH_CLONE_URL` below with that complete URL. Use a destination name
 that does not already exist:
 
@@ -169,7 +185,11 @@ git status
 code .
 ```
 
-The dot means the current directory. VS Code should show this repository's files.
+The dot means the current directory. VS Code should show this repository's files;
+an empty repository may have no visible project files yet. Its hidden `.git`
+folder still stores repository information. Keep `~/projects/class-project` as
+your working copy for Assignment 1. If you chose a different folder name, use
+that name in later commands.
 Open **Terminal → New Terminal** in VS Code and run:
 
 ```bash
@@ -181,6 +201,18 @@ python3 --version
 Confirm VS Code is connected to WSL and this terminal is Ubuntu. If `code` is
 not found, check the Windows VS Code installation and WSL extension from section 1.
 If pyenv is missing, reopen Ubuntu after its initialization.
+
+Install the **Python** extension published by **Microsoft** from VS Code's
+Extensions view. In this WSL window, choose **Install in WSL: Ubuntu** if offered.
+The extension provides Python editing and interpreter selection when you begin
+creating Python files in Assignment 1. Assignment 1 will select the project's `.venv` once it
+exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
+
+**Checkpoint:** `pwd` points to your class repository, `git status` succeeds, and
+`python3 --version` reports `3.12.x`. If it reports a different version, run
+`pyenv version` to see which setting is active before continuing. An existing
+repository's `.python-version` can override your user default; follow any
+instructor-supplied version requirement in that case.
 
 ## Completion and submission
 

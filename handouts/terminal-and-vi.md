@@ -30,6 +30,10 @@ your home directory, `.` means the current directory, and `..` means its parent.
 | `code .` | Open the current folder in VS Code |
 | `git status` | Inspect a repository's working tree |
 
+The table is a reference, not a sequence to paste. A folder must exist before
+you can `cd` into it, and `git status` works only inside a repository. Use the
+exercise below for your first practice session.
+
 Use Tab to complete paths, Up Arrow to recall commands, and Ctrl+C to interrupt
 a running command. Quote paths containing spaces: `cd "my folder"`. Commands such
 as `cp` and `mv` can replace existing destinations; check filenames first.
@@ -60,6 +64,9 @@ editor still has the file open before choosing recovery or deletion.
 
 ## Practice exercise
 
+If you have done this exercise before, use a new filename such as
+`practice-2.txt` in every command below to preserve your earlier work.
+
 1. Create a practice folder outside your repository:
 
    ```bash
@@ -75,7 +82,8 @@ editor still has the file open before choosing recovery or deletion.
 5. Reopen it with `vi practice.txt`, press `i`, and add an unwanted word.
 6. Press `Esc`, type `:q!`, and press Enter. Run `cat practice.txt` again and
    confirm the unwanted edit was discarded.
-7. Run `code .` to open the same folder in VS Code. Locate your saved file.
+7. Save this terminal output and your practice file for Assignment 0. Run `code .`
+   to open the same folder in VS Code. Locate your saved file.
 
 Explain the difference between saving and quitting, and between normal and
 insert modes. For more practice, run `vimtutor` if available or consult the

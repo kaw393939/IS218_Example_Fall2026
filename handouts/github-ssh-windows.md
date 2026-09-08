@@ -22,6 +22,8 @@ ls -al ~/.ssh
 If the directory is missing, continue. If `id_ed25519` and `id_ed25519.pub` already
 exist, you can reuse that pair on this computer. Do not overwrite an existing key.
 If it is already connected to GitHub, try the connection test below first.
+If that identifies your intended account, skip to section 6. Otherwise reuse
+the existing pair starting at section 3; do not generate over it.
 
 ## 2. Generate a key if needed
 
@@ -31,7 +33,8 @@ Replace the example email with yours:
 ssh-keygen -t ed25519 -C "YOUR_GITHUB_EMAIL"
 ```
 
-Accept the default location only if it is unused. Choose a passphrase. If you
+Press Enter to accept the default location only if it is unused. Type a
+passphrase and repeat it when prompted; characters will not appear while typing. If you
 choose another filename, substitute that path throughout this handout.
 The `.pub` file is public; the file without `.pub` is private.
 
@@ -85,7 +88,10 @@ in your GitHub account and that `ssh-add -l` lists your loaded key. Confirm you 
 Copy **Code → SSH** from your repository on GitHub. An SSH URL looks like
 `git@github.com:OWNER/REPOSITORY.git`.
 
-For an existing clone, inspect its remote with `git remote -v`. If it uses HTTPS,
+**First-time setup:** return to Assignment 0 and complete its clone step.
+The following remote-change commands are only for an existing clone.
+
+From inside that existing repository folder, inspect its remote with `git remote -v`. If it uses HTTPS,
 replace the placeholder below with the copied SSH URL:
 
 ```bash
