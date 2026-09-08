@@ -7,8 +7,14 @@ Hello World
 We are setting up a professional development environment: a terminal workflow,
 version control, secure GitHub access, an editor, and isolated Python dependencies.
 
-1. **[Assignment 0 — Environment Setup and Prerequisites](assignments/assignment-0-environment-setup.md):** Prepare your computer before starting project work.
-2. **[Assignment 1 — Python Project with GitHub Issues and pytest](assignments/assignment-1-python-pytest.md):** Complete four issues to build and verify your own minimal project.
+Choose **one** setup assignment for your computer:
+
+- **[Assignment 0 for Windows](assignments/assignment-0-windows.md)** — Set up Ubuntu under WSL2 and your development tools.
+- **[Assignment 0 for Mac](assignments/assignment-0-mac.md)** — Set up Homebrew and your development tools in macOS Terminal.
+
+After completing your platform's Assignment 0, everyone continues to
+**[Assignment 1 — Python Project with GitHub Issues and pytest](assignments/assignment-1-python-pytest.md)**.
+Complete four issues to build and verify your own minimal project.
 
 Prerequisites for Assignment 1:
 
@@ -18,9 +24,8 @@ Prerequisites for Assignment 1:
 | macOS | Homebrew; Git and Python installed through Homebrew; VS Code |
 | Both | GitHub account, working SSH authentication, pyenv for Python version selection, and ability to open a project with `code .` |
 
-Assignment 0 walks through these prerequisites. Keep the
-[GitHub SSH handout](handouts/github-ssh.md) and
-[terminal and vi handout](handouts/terminal-and-vi.md) available as references.
+Each Assignment 0 page includes its platform's prerequisites and links to its SSH
+setup handout. Both use the [terminal and vi handout](handouts/terminal-and-vi.md).
 
 ## Example project
 

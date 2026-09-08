@@ -1,6 +1,7 @@
 # Handout: Terminal and vi Basics
 
-[Back to Assignment 0](../assignments/assignment-0-environment-setup.md)
+[Assignment 0 for Windows](../assignments/assignment-0-windows.md) ·
+[Assignment 0 for Mac](../assignments/assignment-0-mac.md)
 
 ## Why practice these tools?
 

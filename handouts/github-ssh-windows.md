@@ -1,6 +1,6 @@
-# Handout: GitHub SSH on macOS and Ubuntu under WSL2
+# Handout: GitHub SSH for Windows
 
-[Back to Assignment 0](../assignments/assignment-0-environment-setup.md)
+[Back to Assignment 0 for Windows](../assignments/assignment-0-windows.md)
 
 ## Why SSH?
 
@@ -10,8 +10,8 @@ which stays on your computer. A passphrase protects the private key; an SSH agen
 can hold the unlocked key for use by Git. Git's configured name and email label
 commits but do not authenticate you.
 
-Use **macOS Terminal** or **Ubuntu under WSL2** throughout this handout. On Windows,
-create and use the keys inside Ubuntu, where your class Git commands run.
+Use **Ubuntu under WSL2** throughout this handout. Create and use the keys inside
+Ubuntu, where your class Git commands run.
 
 ## 1. Check for an existing key
 
@@ -37,8 +37,6 @@ The `.pub` file is public; the file without `.pub` is private.
 
 ## 3. Add the key to an agent
 
-**Ubuntu under WSL2:**
-
 ```bash
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
@@ -47,50 +45,18 @@ ssh-add ~/.ssh/id_ed25519
 Repeat these commands in a later session if no agent is available or your key
 is no longer loaded. `ssh-add -l` lists loaded key fingerprints.
 
-**macOS:**
-
-```bash
-eval "$(ssh-agent -s)"
-touch ~/.ssh/config
-vi ~/.ssh/config
-```
-
-Merge these settings into an existing `Host github.com` block, or add the block
-if it does not exist. Preserve other configuration:
-
-```sshconfig
-Host github.com
-  AddKeysToAgent yes
-  UseKeychain yes
-  IdentityFile ~/.ssh/id_ed25519
-```
-
-Save with `Esc`, `:wq`, Enter, then run Apple's SSH-add command:
-
-```bash
-/usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-```
-
-If you created a key without a passphrase, omit `UseKeychain` and use
-`/usr/bin/ssh-add ~/.ssh/id_ed25519` instead. These platform steps follow
-[GitHub's key generation and agent guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
+See [GitHub's key generation and agent guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ## 4. Add the public key to GitHub
 
-On macOS, copy it to the clipboard:
-
-```bash
-pbcopy < ~/.ssh/id_ed25519.pub
-```
-
-On Ubuntu under WSL2, display it and copy the entire single line:
+Display the public key and copy the entire single line:
 
 ```bash
 cat ~/.ssh/id_ed25519.pub
 ```
 
 Open GitHub **Settings → SSH and GPG keys → New SSH key**. Give the key a
-recognizable title such as “Class laptop — Ubuntu” or “Class laptop — Mac”, select
+recognizable title such as “Class laptop — Ubuntu”, select
 **Authentication Key**, paste the public key, and save. See
 [GitHub's instructions for adding a key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
 
@@ -112,8 +78,7 @@ the successful test can exit with status `1`. See
 [GitHub's connection test guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection).
 
 If you see `Permission denied (publickey)`, check that the correct public key is
-in your GitHub account and that `ssh-add -l` lists your loaded key. Windows users
-should confirm they are running the command inside Ubuntu.
+in your GitHub account and that `ssh-add -l` lists your loaded key. Confirm you are running the command inside Ubuntu.
 
 ## 6. Use an SSH repository URL
 

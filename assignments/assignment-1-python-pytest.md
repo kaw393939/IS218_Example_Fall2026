@@ -12,7 +12,9 @@ The finished project will contain one Python function, one automated test, and i
 
 ## Before you begin
 
-Complete [Assignment 0: Environment Setup and Prerequisites](assignment-0-environment-setup.md) first. Use your existing class repository, with Git, Python 3, VS Code, and GitHub SSH access ready. This repository contains a completed example; do your assignment work in your own class repository.
+Complete **[Assignment 0 for Windows](assignment-0-windows.md)** or
+**[Assignment 0 for Mac](assignment-0-mac.md)** first. Both paths join here for
+Assignment 1. Use your existing class repository, with Git, Python 3, VS Code, and GitHub SSH access ready. This repository contains a completed example; do your assignment work in your own class repository.
 
 Open a terminal in your repository’s root folder and open the project:
 

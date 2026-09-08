@@ -1,4 +1,4 @@
-# Assignment 0: Environment Setup and Prerequisites
+# Assignment 0 for Mac: Environment Setup and Prerequisites
 
 [Back to README](../README.md) · [Next: Assignment 1](assignment-1-python-pytest.md)
 
@@ -10,9 +10,7 @@ to GitHub, VS Code to edit a project, and Python to run code. Learning these too
 now makes it easier to reproduce your work and collaborate later.
 
 A terminal is the window where you type commands; a shell interprets them.
-macOS normally uses zsh, and Ubuntu normally uses Bash. Both support the project
-commands in these assignments. Windows students use Ubuntu under WSL2 so the
-class can practice the same Unix-style workflow on both platforms.
+You will use macOS Terminal with its usual zsh shell for class project work.
 
 Git stores local version history. GitHub hosts repositories and issues online.
 Python runs your code. A version manager chooses a Python interpreter; a virtual
@@ -26,47 +24,10 @@ instructor's class repository invitation or URL. Accept the invitation first if
 one was provided. Use your own assigned repository for submissions. If you have
 not received one, complete the local exercises while obtaining it from your instructor.
 
-Follow one platform section, then complete the shared sections. Run commands one
+Complete this page in order, including its linked handouts. Run commands one
 at a time and read their output. Do not type a shell prompt such as `$`.
 
-## 1A. Windows: install WSL2, Ubuntu, and development tools
-
-Use a Windows version supported by [Microsoft's WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install).
-Open **PowerShell as Administrator**, run the following, and restart if prompted:
-
-```powershell
-wsl --install -d Ubuntu
-```
-
-Open Ubuntu from the Start menu and create its Linux username and password.
-Password characters do not appear while typing. In PowerShell, check:
-
-```powershell
-wsl --list --verbose
-```
-
-Ubuntu must show version `2`. If it shows `1`, run `wsl --set-version Ubuntu 2`
-(substitute the listed distribution name if different).
-
-**Use the Ubuntu terminal for all remaining project commands.** Install Git,
-Python, vi's Vim implementation, SSH, and Python build dependencies:
-
-```bash
-sudo apt update
-sudo apt install -y git python3 python3-pip python3-venv vim openssh-client curl build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
-git --version
-python3 --version
-```
-
-The development libraries support building Python with pyenv; consult its
-[build environment guide](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
-if a build reports a missing library.
-
-Install [VS Code on Windows and its WSL extension](https://code.visualstudio.com/docs/remote/wsl).
-Keep class projects in Ubuntu's home directory, such as `~/projects`, and launch
-the editor from Ubuntu using `code .`. The editor should indicate a WSL connection.
-
-## 1B. macOS: install Homebrew and development tools
+## 1. Install Homebrew and development tools
 
 Open Terminal. Install Homebrew using the instructions at [brew.sh](https://brew.sh/).
 Follow the installer's **Next steps** to put Homebrew on your shell's PATH.
@@ -89,27 +50,18 @@ Install [VS Code for macOS](https://code.visualstudio.com/docs/setup/mac) and mo
 to Applications. Open its Command Palette with **Command+Shift+P**, run
 **Shell Command: Install 'code' command in PATH**, then open a new terminal.
 
-## 2. Select and change Python versions on both platforms
+## 2. Select and change Python versions
 
-We use pyenv so version selection works the same way on macOS and Ubuntu.
-Homebrew or Ubuntu's Python remains available; pyenv supplies additional versions.
-Do not replace Ubuntu's system Python.
+We use pyenv to install additional Python versions and choose which one runs.
+Homebrew's Python remains available.
 
-**Ubuntu only:** install pyenv once. If `~/.pyenv` already exists, check your
-existing installation rather than cloning over it:
-
-```bash
-git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-~/.pyenv/bin/pyenv init --install
-```
-
-**macOS only:** pyenv was installed through Homebrew above. Configure your shell:
+Pyenv was installed through Homebrew above. Configure your shell:
 
 ```bash
 pyenv init --install
 ```
 
-Close and reopen your terminal, then on **either platform** run:
+Close and reopen your Terminal window, then run:
 
 ```bash
 pyenv --version
@@ -160,7 +112,7 @@ skip it for Assignment 0. Keep `.venv-backup/` out of commits by adding it to
 
 ## 3. Configure Git and GitHub SSH access
 
-Run these in macOS Terminal or Ubuntu, replacing the sample identity with yours:
+Run these in macOS Terminal, replacing the sample identity with yours:
 
 ```bash
 git config --global user.name "Your Name"
@@ -174,7 +126,7 @@ Use an email associated with your GitHub account, or your GitHub-provided privat
 commit email from GitHub's email settings. This identity labels commits; SSH
 authentication is a separate step.
 
-Complete the [GitHub SSH handout](../handouts/github-ssh.md) for your platform.
+Complete the [GitHub SSH handout for Mac](../handouts/github-ssh-mac.md).
 Confirm `ssh -T git@github.com` identifies your GitHub username.
 
 ## 4. Practice the terminal and vi
@@ -209,21 +161,20 @@ git --version
 python3 --version
 ```
 
-On Windows, confirm VS Code is connected to WSL and this terminal is Ubuntu.
-On macOS, if `code` is not found, repeat the PATH command from section 1B and
-restart Terminal. If pyenv is missing, reopen the shell after its initialization.
+If `code` is not found, repeat the PATH command from section 1 and restart
+Terminal. If pyenv is missing, reopen the shell after its initialization.
 
 ## Completion and submission
 
 Submit the following through your instructor's designated submission location.
 Do not create the four Assignment 1 issues yet.
 
-- [ ] Windows: Ubuntu shows WSL version 2; macOS: `brew --version` succeeds.
+- [ ] `brew --version` succeeds.
 - [ ] Git and Python version output from your development terminal.
 - [ ] Output demonstrating Python 3.13 selected and then Python 3.12 restored.
 - [ ] Successful GitHub SSH greeting showing your username. Never submit a private key.
 - [ ] The saved vi practice file and a short explanation of normal and insert modes.
-- [ ] Your class repository URL and a screenshot of it opened with `code .`; Windows screenshots should show the WSL connection.
+- [ ] Your class repository URL and a screenshot of it opened with `code .`.
 - [ ] Two or three sentences explaining Git versus GitHub, and Python version selection versus a virtual environment.
 
 You are ready for [Assignment 1](assignment-1-python-pytest.md) when these checks
