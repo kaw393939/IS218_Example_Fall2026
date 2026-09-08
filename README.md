@@ -1,11 +1,16 @@
-# IS218: Python Development Setup
+# IS218: Introduction to Professional Programming
 
 Hello World
 
 ## Start here
 
-We are setting up a professional development environment: a terminal workflow,
-version control, secure GitHub access, an editor, and isolated Python dependencies.
+You already know how to write Python programs and use basic Git commands. This
+course develops the habits needed to deliver software that other people can
+run, review, maintain, and improve: documented environments, defined tasks,
+reviewed changes, automated tests, and clear handoffs.
+
+Use **VS Code for everyday editing** and its terminal for project commands.
+A short vi exercise introduces editing when only a terminal is available.
 
 Choose **one** setup assignment for your computer:
 
@@ -14,7 +19,8 @@ Choose **one** setup assignment for your computer:
 
 After completing your platform's Assignment 0, everyone continues to
 **[Assignment 1 — Python Project with GitHub Issues and pytest](assignments/assignment-1-python-pytest.md)**.
-Complete four issues to build and verify your own minimal project.
+Complete four issues, review your diffs, design an additional test, and hand
+your documented project to a classmate for verification.
 
 Prerequisites for Assignment 1:
 
@@ -26,15 +32,19 @@ Prerequisites for Assignment 1:
 
 Each Assignment 0 page includes its platform's prerequisites and links to its SSH
 setup handout. Both use the [terminal and vi handout](handouts/terminal-and-vi.md).
+Use the [project troubleshooting reference](handouts/project-troubleshooting.md)
+when a Git, environment, or test check fails.
 
 ## Example project
 
 This minimal Python project demonstrates an `add` function and one pytest test.
 Tested with Python 3.12.7.
 
-This is the instructor's completed example. Complete assignment work in your own
+This is the instructor's baseline example, with one supplied test. Complete assignment work in your own
 assigned class repository; running this example alone does not complete the four
-issues required by Assignment 1.
+issues required by Assignment 1. Your submission adds at least one independently
+designed test, so its final result must be **at least two passing tests**. The
+extra test is intentionally not supplied here.
 
 ```text
 .

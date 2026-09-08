@@ -4,6 +4,10 @@
 
 ## Purpose
 
+This course assumes prior Python coursework and basic Git experience. Assignment
+0 establishes a consistent professional workspace and checks your readiness.
+Use VS Code for daily editing; vi is a short terminal-literacy exercise.
+
 Prepare a professional development environment before writing project code.
 You will use the terminal to navigate files, Git to record work, SSH to connect
 to GitHub, VS Code to edit a project, and Python to run code. Learning these tools
@@ -24,7 +28,10 @@ instructor's class repository invitation or URL. Accept the invitation first if
 one was provided. Use your own assigned repository for submissions. If you have
 not received one, complete the local exercises while obtaining it from your instructor.
 
-Complete this page in order, including its linked handouts. Run commands one
+Complete the checkpoints in order. If a tool is already configured, verify its
+checkpoint and reuse it; reinstalling is not a learning objective. Linked
+handouts provide refresher instructions, and [troubleshooting](#troubleshooting)
+is available at the end of this page. Run commands one
 at a time and read their output. Do not type a shell prompt such as `$`.
 Replace labels such as `YOUR_GITHUB_EMAIL` with your own information. Blocks marked
 with a language show what belongs in a terminal or file; the backticks are not
@@ -58,8 +65,7 @@ version number. The initial Python version may differ from the course version;
 select it in section 2.
 
 Homebrew supplies Git, Python, and the tools needed for version management.
-The additional libraries support Python builds; see the
-[pyenv build environment guide](https://github.com/pyenv/pyenv/wiki#suggested-build-environment).
+The additional libraries support Python builds.
 macOS already provides a `vi` command.
 
 Install [VS Code for macOS](https://code.visualstudio.com/docs/setup/mac) and move it
@@ -94,8 +100,8 @@ series; record the full version printed on your machine. This example project
 was tested with 3.12.7, but that exact patch is not required.
 
 Installing Python can take several minutes while it builds. The `-s` option
-skips installation if that exact version is already installed. If you see
-`BUILD FAILED`, resolve the reported build dependency problem before continuing.
+skips installation if that exact version is already installed. For `BUILD FAILED`,
+use [troubleshooting](#troubleshooting) before continuing.
 
 Practice switching versions in a disposable folder. If your prompt shows an
 active virtual environment such as `(.venv)`, run `deactivate` first:
@@ -127,8 +133,8 @@ See [Python's virtual environment documentation](https://docs.python.org/3/libra
 ## 3. Practice the terminal and vi
 
 Complete the exercise in the [terminal and vi handout](../handouts/terminal-and-vi.md).
-Be able to explain your current directory, move between directories, edit and
-save a file with vi, and quit without saving an unwanted change.
+Be able to explain your current directory, move between directories, and open,
+edit, save, and exit vi. After this exercise, use VS Code for project files.
 
 ## 4. Configure Git and GitHub SSH access
 
@@ -137,10 +143,14 @@ Run these in macOS Terminal, replacing the sample identity with yours:
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "YOUR_GITHUB_EMAIL"
-git config --global core.editor "vi"
+git config --global core.editor "code --wait"
 git config --global --get user.name
 git config --global --get user.email
 ```
+
+Git will open VS Code when it needs an editor. `--wait` keeps Git waiting until
+you save and close that file's editor tab. These are user-wide settings. See
+[VS Code's Git editor instructions](https://code.visualstudio.com/docs/sourcecontrol/overview).
 
 Use an email associated with your GitHub account, or your GitHub-provided private
 commit email from GitHub's email settings. This identity labels commits; SSH
@@ -190,8 +200,7 @@ git --version
 python3 --version
 ```
 
-If `code` is not found, repeat the PATH command from section 1 and restart
-Terminal. If pyenv is missing, reopen the shell after its initialization.
+For command or interpreter problems, use [troubleshooting](#troubleshooting).
 
 Install the **Python** extension published by **Microsoft** from VS Code's
 Extensions view.
@@ -200,10 +209,7 @@ creating Python files in Assignment 1. That assignment will select the project's
 `.venv` once it exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
 
 **Checkpoint:** `pwd` points to your class repository, `git status` succeeds, and
-`python3 --version` reports `3.12.x`. If it reports a different version, run
-`pyenv version` to see which setting is active before continuing. An existing
-repository's `.python-version` can override your user default; follow any
-instructor-supplied version requirement in that case.
+`python3 --version` reports `3.12.x` (or your instructor's specified version).
 
 ## Completion and submission
 
@@ -221,3 +227,37 @@ Do not create the four Assignment 1 issues yet.
 
 You are ready for [Assignment 1](assignment-1-python-pytest.md) when these checks
 are complete. That assignment verifies commits, pushes, and a passing pytest test.
+
+## Readiness standard
+
+Assignment 0 is complete when your evidence demonstrates a working environment
+and you can explain what each tool contributes. If a checkpoint fails, record
+the command, error, and what you tried; resolve it and update the evidence.
+Command memorization and repeated installation are not required.
+
+## Troubleshooting
+
+### Commands are missing
+
+If `code` is not found, repeat the VS Code PATH command in section 1 and
+restart Terminal. If `brew` is not found, complete Homebrew's installer Next
+steps for your shell.
+
+If pyenv is missing, rerun its shell initialization from section 2 and reopen
+the terminal. If a Python build fails, compare your installed libraries with
+[pyenv's build environment guide](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
+and read the reported build log before retrying.
+
+### Python reports the wrong version
+
+If a virtual environment is active, leave it with `deactivate`. Run
+`pyenv version` and `pyenv which python` to inspect the selection. A repository's
+`.python-version` can override your user default; follow any instructor-supplied
+version requirement. Restart VS Code if its terminal retains an older environment.
+
+### GitHub authentication or repository access fails
+
+Use the troubleshooting section in your platform's SSH handout. GitHub login,
+SSH authentication, and access to a particular repository are separate checks.
+For project Git and pytest problems, use the
+[project troubleshooting reference](../handouts/project-troubleshooting.md).

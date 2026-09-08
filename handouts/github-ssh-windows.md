@@ -26,10 +26,7 @@ If that identifies your intended account, save the greeting as evidence and
 skip to section 6. If authentication fails and this is your own key, reuse the
 existing pair starting at section 3; do not generate over it.
 
-If the greeting names a different account, resolve that account mismatch before
-continuing. A public key already attached to another account cannot simply be
-added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
-and ask your instructor for help if you need to keep both accounts configured.
+For a different account or a connection error, use [troubleshooting](#troubleshooting).
 
 ## 2. Generate a key if needed
 
@@ -87,9 +84,6 @@ succeeded. GitHub does not provide shell access, so that message is normal;
 the successful test can exit with status `1`. See
 [GitHub's connection test guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection).
 
-If you see `Permission denied (publickey)`, check that the correct public key is
-in your GitHub account and that `ssh-add -l` lists your loaded key. Confirm you are running the command inside Ubuntu.
-
 ## 6. Use an SSH repository URL
 
 Copy **Code → SSH** from your repository on GitHub, or choose SSH in its
@@ -109,3 +103,13 @@ git remote -v
 
 SSH authentication does not grant access to every repository. Accept your class
 invitation and verify that your account has access to your assigned repository.
+
+## Troubleshooting
+
+If you see `Permission denied (publickey)`, check that the correct public key is
+in your GitHub account and that `ssh-add -l` lists your loaded key. Confirm you are running the command inside Ubuntu.
+
+If the greeting names a different account, resolve that account mismatch before
+continuing. A public key already attached to another account cannot simply be
+added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
+and ask your instructor for help if you need to keep both accounts configured.

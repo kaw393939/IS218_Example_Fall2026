@@ -25,10 +25,7 @@ If that identifies your intended account, save the greeting as evidence and
 skip to section 6. If authentication fails and this is your own key, reuse the
 existing pair starting at section 3; do not generate over it.
 
-If the greeting names a different account, resolve that account mismatch before
-continuing. A public key already attached to another account cannot simply be
-added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
-and ask your instructor for help if you need to keep both accounts configured.
+For a different account or a connection error, use [troubleshooting](#troubleshooting).
 
 ## 2. Generate a key if needed
 
@@ -48,10 +45,9 @@ The `.pub` file is public; the file without `.pub` is private.
 ```bash
 eval "$(ssh-agent -s)"
 touch ~/.ssh/config
-vi ~/.ssh/config
+code --wait ~/.ssh/config
 ```
 
-In vi, press `i` to enter insert mode before typing or pasting.
 Merge these settings into an existing `Host github.com` block, or add the block
 if it does not exist. Preserve other configuration:
 
@@ -62,7 +58,7 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
 ```
 
-Save with `Esc`, `:wq`, Enter, then run Apple's SSH-add command:
+Save and close the config file's VS Code tab, then run Apple's SSH-add command:
 
 ```bash
 /usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_ed25519
@@ -103,9 +99,6 @@ succeeded. GitHub does not provide shell access, so that message is normal;
 the successful test can exit with status `1`. See
 [GitHub's connection test guide](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/testing-your-ssh-connection).
 
-If you see `Permission denied (publickey)`, check that the correct public key is
-in your GitHub account and that `ssh-add -l` lists your loaded key.
-
 ## 6. Use an SSH repository URL
 
 Copy **Code → SSH** from your repository on GitHub, or choose SSH in its
@@ -125,3 +118,13 @@ git remote -v
 
 SSH authentication does not grant access to every repository. Accept your class
 invitation and verify that your account has access to your assigned repository.
+
+## Troubleshooting
+
+If you see `Permission denied (publickey)`, check that the correct public key is
+in your GitHub account and that `ssh-add -l` lists your loaded key.
+
+If the greeting names a different account, resolve that account mismatch before
+continuing. A public key already attached to another account cannot simply be
+added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
+and ask your instructor for help if you need to keep both accounts configured.

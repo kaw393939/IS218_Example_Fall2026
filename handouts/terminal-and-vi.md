@@ -6,9 +6,9 @@
 ## Why practice these tools?
 
 Terminal commands make your work repeatable: you can tell someone exactly how to
-open a folder, run code, or verify a test. A terminal editor is useful when Git
-opens a commit message or when working on a server without a graphical editor.
-We will practice vi and use VS Code for project editing.
+open a folder, run code, or verify a test. A terminal editor is useful on a server or whenever a graphical editor is
+unavailable. This is a short introduction to vi, not a requirement to use it
+for daily work. Use VS Code for project editing and Git messages.
 
 Run these examples in macOS Terminal or Ubuntu under WSL2. Paths are relative to
 your current directory unless they start with `/` or `~`. The symbol `~` means
