@@ -74,7 +74,9 @@ For example, your first issue might be `#7`, not `#1`.
 
 ## Connect commits to issues using `#`
 
-Include the relevant issue number **inside the quoted commit message**:
+Include the relevant issue number **inside the quoted commit message**. This is
+a syntax example; run the actual commit commands in each issue's completion
+section after saving and staging its files:
 
 ```bash
 git commit -m "Create the repository foundation #1"
@@ -202,7 +204,21 @@ Check which Python interpreter you are using:
 python -c "import sys; print(sys.executable)"
 ```
 
-The displayed path should point inside this project’s `.venv` folder.
+The displayed path should point inside this project's `.venv` folder.
+
+**When returning in a new terminal after this environment has been created,**
+resume with these commands (substitute your folder name if different):
+
+```bash
+cd ~/projects/class-project
+source .venv/bin/activate
+python -c "import sys; print(sys.executable)"
+git status
+```
+
+Reactivation uses the existing environment; you do not need to clone or create
+it again. Continue with your next unfinished issue. If `.venv/bin/activate` is
+missing, check your folder with `pwd` before trying to create an environment.
 
 In VS Code, open the Command Palette (**View → Command Palette**), choose
 **Python: Select Interpreter**, and select `.venv/bin/python` in this repository.
@@ -246,7 +262,22 @@ Record the Python version you used:
 python --version
 ```
 
-**Commit the setup instructions and dependency list—not the `.venv` folder.**
+Check that Git ignores your environment:
+
+```bash
+git check-ignore .venv/
+git ls-files .venv
+```
+
+The first command should print `.venv/`; the second should print nothing. If
+files appear in the second command, they are already tracked: adding ignore
+rules alone will not remove them. In that case, run
+`git rm -r --cached -- .venv` to stop tracking the environment while keeping it
+on disk, then repeat the checks. Include that staged removal in this issue's
+commit. See [Git's tracked-file listing](https://git-scm.com/docs/git-ls-files) and
+[ignore checking](https://git-scm.com/docs/git-check-ignore).
+
+Commit the setup instructions and dependency list, with `.venv` excluded.
 
 ## D. Commit and push
 
@@ -287,6 +318,9 @@ def add(a: int, b: int) -> int:
     return a + b
 ```
 
+`app.py` defines a function; running it directly produces no output. The test
+below calls that function and checks its return value.
+
 ## B. Create the test folder and file
 
 Create the folder from the repository root:
@@ -295,11 +329,11 @@ Create the folder from the repository root:
 mkdir -p tests
 ```
 
-Inside it, create `test_app.py`:
+Create `tests/test_app.py` in VS Code while keeping your terminal at the
+repository root. Paste this code into that file:
 
 ```python
 from app import add
-
 
 def test_add():
     assert add(2, 3) == 5
@@ -405,6 +439,10 @@ your-repository/
     └── test_app.py
 ```
 
+Use your own repository URL and tested Python version in the README. If you
+use the instructor README as a reference, adapt its example-clone instructions
+to your repository. Include the reactivation commands for a returning session.
+
 Other existing class files may remain. No application framework, packaging configuration, or CI workflow is required.
 
 ## B. Commit and push the documentation
@@ -457,7 +495,16 @@ Then check:
 git status
 ```
 
-The working tree should be clean; creating the environment and running tests should not require adding generated files to Git.
+The working tree should be clean; creating the environment and running tests
+should not require adding generated files to Git. A clean status alone does not
+prove the original project excluded them. Check the tracked file list too:
+
+```bash
+git ls-files .venv __pycache__ tests/__pycache__ .pytest_cache
+```
+
+This command should print nothing. If it lists generated files, correct their
+tracking in the original repository before repeating the fresh-clone check.
 
 If a step is missing or unclear, return to the original repository, correct the README, and make another commit referencing the same issue. Push the correction and repeat the verification with the updated instructions.
 

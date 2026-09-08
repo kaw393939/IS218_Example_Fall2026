@@ -34,6 +34,12 @@ The table is a reference, not a sequence to paste. A folder must exist before
 you can `cd` into it, and `git status` works only inside a repository. Use the
 exercise below for your first practice session.
 
+Copy and paste shortcuts differ from Ctrl+C, which interrupts a command. In
+macOS Terminal, use Command+C and Command+V. In a Windows Terminal Ubuntu tab,
+use Ctrl+Shift+C and Ctrl+Shift+V. See the
+[Mac Terminal shortcuts](https://support.apple.com/guide/terminal/keyboard-shortcuts-trmlshtcts/mac)
+and [Windows Terminal keybindings](https://learn.microsoft.com/en-us/windows/terminal/customize-settings/actions#copy).
+
 Use Tab to complete paths, Up Arrow to recall commands, and Ctrl+C to interrupt
 a running command. Quote paths containing spaces: `cd "my folder"`. Commands such
 as `cp` and `mv` can replace existing destinations; check filenames first.

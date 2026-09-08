@@ -48,7 +48,7 @@ if your macOS version is unsupported.
 ```bash
 brew --version
 brew update
-brew install git python pyenv openssl@3 readline sqlite3 xz zlib tcl-tk@8 libb2 zstd
+brew install git python pyenv openssl@3 readline sqlite3 xz zlib tcl-tk@8 libb2 zstd pkgconfig
 git --version
 python3 --version
 ```
@@ -77,7 +77,9 @@ Pyenv was installed through Homebrew above. Configure your shell:
 pyenv init --install
 ```
 
-Close and reopen your Terminal window, then run:
+Close and reopen your Terminal window. If an environment such as `(.venv)`
+is already active, run `deactivate` first so it cannot override the version you
+are selecting. Then run:
 
 ```bash
 pyenv --version
@@ -152,7 +154,8 @@ Confirm `ssh -T git@github.com` identifies your GitHub username.
 On GitHub, open your own assigned class repository, not the instructor's example.
 Select **Code → SSH** and copy the URL. An empty repository instead shows an SSH
 URL in **Quick setup**. If you already cloned your class repository, open its
-existing folder and skip the first four commands below; start with `pwd`.
+existing folder with `cd` and skip the clone block. For example, if it is already
+at the path used in this handout, run `cd ~/projects/class-project`.
 Replace `YOUR_SSH_CLONE_URL` below with that complete URL. Use a destination name
 that does not already exist:
 
@@ -161,6 +164,13 @@ mkdir -p ~/projects
 cd ~/projects
 git clone YOUR_SSH_CLONE_URL class-project
 cd class-project
+```
+
+An empty repository can print `You appear to have cloned an empty repository.`
+This is expected before your first commit. If cloning fails instead, fix the
+error before continuing. From your new or existing repository folder, run:
+
+```bash
 pwd
 git remote -v
 git status
@@ -186,8 +196,8 @@ Terminal. If pyenv is missing, reopen the shell after its initialization.
 Install the **Python** extension published by **Microsoft** from VS Code's
 Extensions view.
 The extension provides Python editing and interpreter selection when you begin
-creating Python files in Assignment 1. Assignment 1 will select the project's `.venv` once it
-exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
+creating Python files in Assignment 1. That assignment will select the project's
+`.venv` once it exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
 
 **Checkpoint:** `pwd` points to your class repository, `git status` succeeds, and
 `python3 --version` reports `3.12.x`. If it reports a different version, run
@@ -205,6 +215,7 @@ Do not create the four Assignment 1 issues yet.
 - [ ] Output demonstrating Python 3.13 selected and then Python 3.12 restored.
 - [ ] Successful GitHub SSH greeting showing your username. Never submit a private key.
 - [ ] The saved vi practice file and a short explanation of normal and insert modes.
+- [ ] The Microsoft Python extension is installed in the project's VS Code window.
 - [ ] Your class repository URL and a screenshot of it opened with `code .`.
 - [ ] Two or three sentences explaining Git versus GitHub, and Python version selection versus a virtual environment.
 

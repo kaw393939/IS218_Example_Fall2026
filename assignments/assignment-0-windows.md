@@ -38,15 +38,22 @@ you will submit this evidence at the end.
 ## 1. Install WSL2, Ubuntu, and development tools
 
 Use a Windows version supported by [Microsoft's WSL installation guide](https://learn.microsoft.com/en-us/windows/wsl/install).
-If Ubuntu is already installed, start with `wsl --list --verbose` in PowerShell
-and reuse it when it shows version 2. Otherwise, open **PowerShell as
-Administrator**, run the following, and restart if prompted:
+If you have used WSL before, check `wsl --list --verbose` in PowerShell:
+
+- If Ubuntu shows version `2`, reuse it and continue with the Ubuntu tools below.
+- If Ubuntu shows version `1`, run `wsl --set-version Ubuntu 2`, using the exact
+  listed distribution name in place of `Ubuntu`, then check the version again.
+- If Ubuntu is not installed, use the installation command below.
+
+For a new installation, find PowerShell in Start, choose **Run as administrator**,
+run this command, and restart if prompted:
 
 ```powershell
 wsl --install -d Ubuntu
 ```
 
-Open Ubuntu from the Start menu and create its Linux username and password.
+Open Ubuntu from the Start menu. On its first launch, create a Linux username
+and password; an existing Ubuntu installation already has this account.
 This is a Linux account; its password can differ from your Windows password.
 Password characters do not appear while typing. `sudo` will ask for this Linux
 password when installing tools. In PowerShell, check:
@@ -63,7 +70,7 @@ Python, vi's Vim implementation, SSH, and Python build dependencies:
 
 ```bash
 sudo apt update
-sudo apt install -y git python3 python3-pip python3-venv vim openssh-client curl build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+sudo apt install -y git python3 python3-pip python3-venv vim openssh-client curl build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev libzstd-dev
 git --version
 python3 --version
 ```
@@ -95,7 +102,9 @@ git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 ~/.pyenv/bin/pyenv init --install
 ```
 
-Close and reopen your Ubuntu terminal, then run:
+Close and reopen your Ubuntu terminal. If an environment such as `(.venv)`
+is already active, run `deactivate` first so it cannot override the version you
+are selecting. Then run:
 
 ```bash
 pyenv --version
@@ -170,7 +179,8 @@ Confirm `ssh -T git@github.com` identifies your GitHub username.
 On GitHub, open your own assigned class repository, not the instructor's example.
 Select **Code → SSH** and copy the URL. An empty repository instead shows an SSH
 URL in **Quick setup**. If you already cloned your class repository, open its
-existing folder and skip the first four commands below; start with `pwd`.
+existing folder with `cd` and skip the clone block. For example, if it is already
+at the path used in this handout, run `cd ~/projects/class-project`.
 Replace `YOUR_SSH_CLONE_URL` below with that complete URL. Use a destination name
 that does not already exist:
 
@@ -179,6 +189,13 @@ mkdir -p ~/projects
 cd ~/projects
 git clone YOUR_SSH_CLONE_URL class-project
 cd class-project
+```
+
+An empty repository can print `You appear to have cloned an empty repository.`
+This is expected before your first commit. If cloning fails instead, fix the
+error before continuing. From your new or existing repository folder, run:
+
+```bash
 pwd
 git remote -v
 git status
@@ -205,8 +222,8 @@ If pyenv is missing, reopen Ubuntu after its initialization.
 Install the **Python** extension published by **Microsoft** from VS Code's
 Extensions view. In this WSL window, choose **Install in WSL: Ubuntu** if offered.
 The extension provides Python editing and interpreter selection when you begin
-creating Python files in Assignment 1. Assignment 1 will select the project's `.venv` once it
-exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
+creating Python files in Assignment 1. That assignment will select the project's
+`.venv` once it exists. See [VS Code's Python environment guide](https://code.visualstudio.com/docs/python/environments).
 
 **Checkpoint:** `pwd` points to your class repository, `git status` succeeds, and
 `python3 --version` reports `3.12.x`. If it reports a different version, run
@@ -224,6 +241,7 @@ Do not create the four Assignment 1 issues yet.
 - [ ] Output demonstrating Python 3.13 selected and then Python 3.12 restored.
 - [ ] Successful GitHub SSH greeting showing your username. Never submit a private key.
 - [ ] The saved vi practice file and a short explanation of normal and insert modes.
+- [ ] The Microsoft Python extension is installed in the project's VS Code window.
 - [ ] Your class repository URL and a screenshot of it opened with `code .` showing the WSL connection.
 - [ ] Two or three sentences explaining Git versus GitHub, and Python version selection versus a virtual environment.
 

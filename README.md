@@ -48,7 +48,7 @@ issues required by Assignment 1.
 
 The `assignments/` and `handouts/` folders contain the course instructions.
 
-## Setup
+## Run the example
 
 Prerequisites: complete your platform's Assignment 0. To try this example, clone
 it into a new folder from macOS Terminal or Ubuntu under WSL2:
@@ -92,4 +92,14 @@ To check that the test detects an incorrect result, temporarily change the
 expected value in `tests/test_app.py` from `5` to `6`, run the test and confirm it
 fails, then restore `5` and run it again to confirm it passes.
 
-Run `deactivate` when finished to leave the virtual environment.
+To return to this example in a new terminal after setup, use its existing
+folder and environment:
+
+```bash
+cd ~/projects/is218-example
+source .venv/bin/activate
+python -m pytest
+```
+
+Substitute your folder path if different. Run `deactivate` when finished to
+leave the virtual environment.

@@ -21,8 +21,14 @@ ls -al ~/.ssh
 If the directory is missing, continue. If `id_ed25519` and `id_ed25519.pub` already
 exist, you can reuse that pair on this computer. Do not overwrite an existing key.
 If it is already connected to GitHub, try the connection test below first.
-If that identifies your intended account, skip to section 6. Otherwise reuse
-the existing pair starting at section 3; do not generate over it.
+If that identifies your intended account, save the greeting as evidence and
+skip to section 6. If authentication fails and this is your own key, reuse the
+existing pair starting at section 3; do not generate over it.
+
+If the greeting names a different account, resolve that account mismatch before
+continuing. A public key already attached to another account cannot simply be
+added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
+and ask your instructor for help if you need to keep both accounts configured.
 
 ## 2. Generate a key if needed
 
@@ -89,7 +95,8 @@ ssh -T git@github.com
 
 On first connection, compare the displayed host fingerprint with
 [GitHub's published SSH fingerprints](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/githubs-ssh-key-fingerprints)
-before accepting it. This checks the server's identity.
+before accepting it. If it matches, type `yes` and press Enter. This checks the
+server's identity; the prompt normally appears only on the first connection.
 
 Success is a greeting identifying your GitHub username and saying authentication
 succeeded. GitHub does not provide shell access, so that message is normal;
@@ -101,7 +108,8 @@ in your GitHub account and that `ssh-add -l` lists your loaded key.
 
 ## 6. Use an SSH repository URL
 
-Copy **Code → SSH** from your repository on GitHub. An SSH URL looks like
+Copy **Code → SSH** from your repository on GitHub, or choose SSH in its
+**Quick setup** area if the repository is empty. An SSH URL looks like
 `git@github.com:OWNER/REPOSITORY.git`.
 
 **First-time setup:** return to Assignment 0 and complete its clone step.
