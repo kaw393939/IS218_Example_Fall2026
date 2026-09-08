@@ -4,7 +4,8 @@ Hello World
 
 ## Start here
 
-Build on your Python and Git experience by practicing professional project work.
+Build on your Python and Git experience using a repository in your **personal
+GitHub account**. Assignment 0 shows you how to create it.
 
 **Create an issue → make and test the change → commit with its issue number →
 push → verify and close the issue.**
@@ -22,18 +23,8 @@ After completing your platform's Assignment 0, everyone continues to
 **Create four GitHub issues before coding. Each issue needs its own linked
 commit(s) and verification comment before you close it.**
 
-Prerequisites for Assignment 1:
-
-| Platform | Required environment |
-| --- | --- |
-| Windows | WSL2 with Ubuntu; Git and Python installed inside Ubuntu; Windows VS Code with the WSL extension |
-| macOS | Homebrew; Git and Python installed through Homebrew; VS Code |
-| Both | GitHub account, working SSH authentication, pyenv for Python version selection, and ability to open a project with `code .` |
-
-Each Assignment 0 page includes its platform's prerequisites and links to its SSH
-setup handout. Both use the [terminal and vi handout](handouts/terminal-and-vi.md).
-Use the [project troubleshooting reference](handouts/project-troubleshooting.md)
-when a Git, environment, or test check fails.
+Assignment 0 covers Git, Python version selection, SSH, VS Code, and terminal
+practice. If you get stuck, use the [troubleshooting reference](handouts/project-troubleshooting.md).
 
 ## Example project
 
@@ -41,7 +32,7 @@ This minimal Python project demonstrates an `add` function and one pytest test.
 Tested with Python 3.12.7.
 
 This is the instructor's baseline example, with one supplied test. Complete assignment work in your own
-assigned class repository; running this example alone does not complete the four
+personal GitHub repository; running this example alone does not complete the four
 issues required by Assignment 1. Your submission adds at least one independently
 designed test, so its final result must be **at least two passing tests**. The
 extra test is intentionally not supplied here.

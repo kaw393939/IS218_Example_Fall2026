@@ -11,7 +11,7 @@ and at least two passing tests**. Do not put all the work into one commit.
 ## Before starting
 
 Complete [Assignment 0 for Windows](assignment-0-windows.md) or
-[Assignment 0 for Mac](assignment-0-mac.md). Use your own assigned repository.
+[Assignment 0 for Mac](assignment-0-mac.md). Use the personal repository you created in Assignment 0.
 Edit in VS Code; run commands from its root in macOS Terminal or Ubuntu under WSL2:
 
 ```bash
@@ -20,8 +20,7 @@ code .
 ```
 
 Substitute your folder path if different. Use the default branch for this
-introductory exercise; branches and pull requests come next. If your starter
-already completes these tasks, confirm the intended starting point with your instructor.
+introductory exercise; branches and pull requests come next.
 
 ## 1. Create the four issues FIRST
 
@@ -35,7 +34,7 @@ if available. [GitHub's issue instructions](https://docs.github.com/en/issues/tr
 | 1 | Create the repository foundation | #___ |
 | 2 | Set up the Python environment and pytest | #___ |
 | 3 | Add the function and tests | #___ |
-| 4 | Document and verify the handoff | #___ |
+| 4 | Document and verify a fresh clone | #___ |
 
 **GitHub assigns the numbers. Replace `#1`, `#2`, `#3`, and `#4` in every example
 with your actual numbers.** Work order 1 might be issue `#7`.
@@ -61,13 +60,15 @@ For **every issue**:
 4. Open the pushed commit on GitHub. Click its `#number` and confirm it opens the correct issue.
 5. Paste the **commit URL** and your verification result into that issue, check its checklist, and close it.
 
-Use this short comment format with your actual results:
+Example verification comment for the foundation issue (replace the URL):
 
 ```text
 Commit: [paste the GitHub commit URL]
-Verified: [command/check and actual result]
-Reviewed: [what you checked in the staged changes]
+Verified: README.md and .gitignore are visible on GitHub.
+Reviewed: The commit contains only these two files.
 ```
+
+Write your own short result for each issue.
 
 **Use plain `#number` references and close issues manually after verification.**
 `Closes #number` can automatically close an issue when the commit reaches the
@@ -230,14 +231,13 @@ git push
 Check the commit's issue link. Add its URL and your actual test results to the
 issue, finish the checklist, and close it **before starting issue 4**.
 
-## Issue 4 — Document and verify the handoff
+## Issue 4 — Document and verify a fresh clone
 
 **Paste into this issue:**
 
 ```markdown
 - [ ] README.md describes the files, Python version, setup, reactivation, tests, and ignored files.
 - [ ] My fresh clone passes at least two tests and has a clean working tree with no tracked caches.
-- [ ] A classmate followed the README; feedback and successful final verification are recorded.
 - [ ] My pushed documentation commit references this issue; its URL is recorded here.
 ```
 
@@ -246,7 +246,7 @@ actual passing-test count. Describe `README.md`, `.gitignore`, `requirements.txt
 `app.py`, and `tests/test_app.py`. Keep existing class files. No framework,
 packaging configuration, or CI is required.
 
-**Review and push the README before verification. Replace `#4` with your handoff issue number:**
+**Review and push the README before verification. Replace `#4` with your documentation issue number:**
 
 ```bash
 git status
@@ -281,35 +281,15 @@ git ls-files .venv __pycache__ tests/__pycache__ .pytest_cache
 Expect a clean working tree and no tracked-file output. Record the OS, Python
 version, actual test count, and Git checks in **this issue**.
 
-### Have a classmate verify the handoff
-
-Give a classmate the repository URL and commit ID (`git rev-parse --short HEAD`).
-They must follow the README in a fresh clone and record:
-
-```text
-Reviewer and commit reviewed:
-Method: independent clone / supervised walkthrough
-OS and Python version:
-Test count and Git check results:
-Unclear instructions, corrections, and final outcome:
-```
-
-For private repositories, use instructor-approved access or a classmate-directed
-walkthrough in a fresh clone on your machine. Record the method; a walkthrough
-does not verify another machine. Keep credentials private. If they cannot
-comment in the issue, paste their feedback with permission. Ask the instructor
-to coordinate a reviewer if needed.
-
-Fix unclear instructions in your original working copy. Review, commit with
-**the same issue number**, and push corrections; record each commit URL and have
-the reviewer repeat affected steps. Close issue 4 only after both checks succeed.
-Run `deactivate` before leaving the verification copy and returning to your
-original project folder.
+If a step fails or the README is unclear, correct it in your original working
+copy. Commit corrections with **this same issue number**, push, and repeat the
+fresh-clone check. Add the commit links and final result to the issue, then close it.
+Run `deactivate` before returning to your original project folder.
 
 ## Turn it in
 
-Submit your repository URL through the course submission location. **Submission
-receives credit; there is no scored rubric.**
+Submit your repository's GitHub page URL through the course submission location.
+**Submission receives credit.**
 
 Keep the work in GitHub: four issues, their linked commits, and short verification
 comments. You do not need a separate report or a duplicate issue-to-commit table.

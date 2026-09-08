@@ -85,5 +85,4 @@ output such as a diff displayed in a pager, press `q` to return to the prompt.
 Deactivate the verification environment before returning to your original
 working copy. Correct the README there, review the diff, commit with issue 4's
 number, and push. Use a new destination such as `python-setup-check-2` for the
-next clone. Have the reviewer repeat affected steps after handoff corrections,
-and record which final commit they verified.
+next clone. Record the corrected commit link and successful check in issue 4.

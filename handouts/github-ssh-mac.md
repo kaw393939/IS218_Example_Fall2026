@@ -116,8 +116,8 @@ git remote set-url origin YOUR_SSH_CLONE_URL
 git remote -v
 ```
 
-SSH authentication does not grant access to every repository. Accept your class
-invitation and verify that your account has access to your assigned repository.
+Use the repository owned by your personal GitHub account. Its SSH URL should
+contain your username.
 
 ## Troubleshooting
 
@@ -126,5 +126,5 @@ in your GitHub account and that `ssh-add -l` lists your loaded key.
 
 If the greeting names a different account, resolve that account mismatch before
 continuing. A public key already attached to another account cannot simply be
-added to your class account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
-and ask your instructor for help if you need to keep both accounts configured.
+added to another account. Follow [GitHub's key-already-in-use guide](https://docs.github.com/en/authentication/troubleshooting-ssh/error-key-already-in-use)
+before changing an existing account setup.
