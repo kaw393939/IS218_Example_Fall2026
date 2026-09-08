@@ -1,0 +1,81 @@
+# Handout: Terminal and vi Basics
+
+[Back to Assignment 0](../assignments/assignment-0-environment-setup.md)
+
+## Why practice these tools?
+
+Terminal commands make your work repeatable: you can tell someone exactly how to
+open a folder, run code, or verify a test. A terminal editor is useful when Git
+opens a commit message or when working on a server without a graphical editor.
+We will practice vi and use VS Code for project editing.
+
+Run these examples in macOS Terminal or Ubuntu under WSL2. Paths are relative to
+your current directory unless they start with `/` or `~`. The symbol `~` means
+your home directory, `.` means the current directory, and `..` means its parent.
+
+## Essential terminal commands
+
+| Command | Purpose |
+| --- | --- |
+| `pwd` | Print the current directory |
+| `ls` | List files and folders |
+| `ls -la` | Include hidden files and details |
+| `cd ~/projects` | Move to your projects folder |
+| `cd ..` | Move up one directory |
+| `mkdir -p ~/terminal-practice` | Create a practice directory if needed |
+| `cat practice.txt` | Display a text file |
+| `cp practice.txt practice-copy.txt` | Copy a file |
+| `mv practice-copy.txt renamed.txt` | Rename or move a file |
+| `code .` | Open the current folder in VS Code |
+| `git status` | Inspect a repository's working tree |
+
+Use Tab to complete paths, Up Arrow to recall commands, and Ctrl+C to interrupt
+a running command. Quote paths containing spaces: `cd "my folder"`. Commands such
+as `cp` and `mv` can replace existing destinations; check filenames first.
+
+## vi modes and commands
+
+Open a file with `vi practice.txt`. vi starts in **normal mode**, where keys are
+commands. Press `i` to enter **insert mode** and type text. Press `Esc` to return
+to normal mode. Commands starting with `:` finish when you press Enter.
+
+| Keys in normal mode | Action |
+| --- | --- |
+| `i` | Enter insert mode before the cursor |
+| `h`, `j`, `k`, `l` | Move left, down, up, right |
+| `x` | Delete the character under the cursor |
+| `dd` | Delete the current line |
+| `u` | Undo the last change |
+| `/word`, Enter | Search forward for `word` |
+| `n` | Repeat the search |
+| `:w`, Enter | Save |
+| `:q`, Enter | Quit if there are no unsaved changes |
+| `:wq`, Enter | Save and quit |
+| `:q!`, Enter | Discard unsaved changes and quit |
+
+If you feel stuck, press `Esc` first. Then use `:wq` to keep your edits or `:q!`
+to discard them. If a swap-file warning appears, read it and check whether another
+editor still has the file open before choosing recovery or deletion.
+
+## Practice exercise
+
+1. Create a practice folder outside your repository:
+
+   ```bash
+   mkdir -p ~/terminal-practice
+   cd ~/terminal-practice
+   pwd
+   vi practice.txt
+   ```
+
+2. Press `i` and type two lines describing what a terminal and Git do.
+3. Press `Esc`, type `:wq`, and press Enter.
+4. Run `cat practice.txt` to verify the saved contents.
+5. Reopen it with `vi practice.txt`, press `i`, and add an unwanted word.
+6. Press `Esc`, type `:q!`, and press Enter. Run `cat practice.txt` again and
+   confirm the unwanted edit was discarded.
+7. Run `code .` to open the same folder in VS Code. Locate your saved file.
+
+Explain the difference between saving and quitting, and between normal and
+insert modes. For more practice, run `vimtutor` if available or consult the
+[official Vim learning resources](https://www.vim.org/docs.php).
