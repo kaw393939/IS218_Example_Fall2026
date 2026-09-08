@@ -4,13 +4,12 @@ Hello World
 
 ## Start here
 
-You already know how to write Python programs and use basic Git commands. This
-course develops the habits needed to deliver software that other people can
-run, review, maintain, and improve: documented environments, defined tasks,
-reviewed changes, automated tests, and clear handoffs.
+Build on your Python and Git experience by practicing professional project work.
 
-Use **VS Code for everyday editing** and its terminal for project commands.
-A short vi exercise introduces editing when only a terminal is available.
+**Create an issue → make and test the change → commit with its issue number →
+push → verify and close the issue.**
+
+Use VS Code for daily work. The vi exercise is a short terminal introduction.
 
 Choose **one** setup assignment for your computer:
 
@@ -19,8 +18,8 @@ Choose **one** setup assignment for your computer:
 
 After completing your platform's Assignment 0, everyone continues to
 **[Assignment 1 — Python Project with GitHub Issues and pytest](assignments/assignment-1-python-pytest.md)**.
-Complete four issues, review your diffs, design an additional test, and hand
-your documented project to a classmate for verification.
+**Create four GitHub issues before coding. Each issue needs its own linked
+commit(s) and verification comment before you close it.**
 
 Prerequisites for Assignment 1:
 
