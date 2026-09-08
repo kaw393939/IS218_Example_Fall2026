@@ -10,6 +10,7 @@ Build on your Python and Git experience by practicing professional project work.
 push → verify and close the issue.**
 
 Use VS Code for daily work. The vi exercise is a short terminal introduction.
+These are practice assignments: submit the requested work to receive credit.
 
 Choose **one** setup assignment for your computer:
 

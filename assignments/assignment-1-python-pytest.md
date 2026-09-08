@@ -306,25 +306,10 @@ the reviewer repeat affected steps. Close issue 4 only after both checks succeed
 Run `deactivate` before leaving the verification copy and returning to your
 original project folder.
 
-## Submit the issue-to-commit record
+## Turn it in
 
-Submit your repository URL and this completed table through the course submission
-location. **Every issue must show its linked commit(s) and verification before closure.**
+Submit your repository URL through the course submission location. **Submission
+receives credit; there is no scored rubric.**
 
-| Issue URL | GitHub commit URL(s) | Verification result |
-| --- | --- | --- |
-| Foundation | | |
-| Environment | | |
-| Function and tests | | |
-| Documentation and handoff | | |
-
-Four issues and at least four coherent commits are required for practice.
-Commit count alone does not demonstrate good work.
-
-| Assessment | Points |
-| --- | ---: |
-| Issues, linked commits, and verification comments | 20 |
-| Reviewed, focused commits with no generated files | 20 |
-| Two or more passing tests, independent rationale, and failure explanation | 25 |
-| Accurate README and fresh-clone evidence | 20 |
-| Classmate handoff and addressed feedback | 15 |
+Keep the work in GitHub: four issues, their linked commits, and short verification
+comments. You do not need a separate report or a duplicate issue-to-commit table.

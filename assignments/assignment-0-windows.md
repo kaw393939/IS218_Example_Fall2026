@@ -237,7 +237,8 @@ creating Python files in Assignment 1. That assignment will select the project's
 
 ## Completion and submission
 
-Submit the following through your instructor's designated submission location.
+Submit the following through the course submission location. **Submission receives
+credit; there is no scored rubric.**
 Do not create the four Assignment 1 issues yet.
 
 - [ ] Ubuntu shows WSL version 2.
@@ -251,13 +252,6 @@ Do not create the four Assignment 1 issues yet.
 
 You are ready for [Assignment 1](assignment-1-python-pytest.md) when these checks
 are complete. That assignment verifies commits, pushes, and a passing pytest test.
-
-## Readiness standard
-
-Assignment 0 is complete when your evidence demonstrates a working environment
-and you can explain what each tool contributes. If a checkpoint fails, record
-the command, error, and what you tried; resolve it and update the evidence.
-Command memorization and repeated installation are not required.
 
 ## Troubleshooting
 
