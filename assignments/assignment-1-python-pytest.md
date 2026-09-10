@@ -119,7 +119,7 @@ verification comment to the issue, and close it **before starting issue 2**.
 **Paste into this issue:**
 
 ```markdown
-- [ ] A local .venv has pytest installed; requirements.txt contains only pytest.
+- [ ] A local .venv has pytest installed; requirements.txt contains the course pytest baseline.
 - [ ] README.md records the Python version and setup commands; .venv is not tracked.
 - [ ] My pushed commit references this issue; its URL and verification are recorded here.
 ```
@@ -139,7 +139,7 @@ The interpreter path must be inside this project's `.venv`. In VS Code, use
 Create `requirements.txt` containing:
 
 ```text
-pytest
+pytest==8.4.2
 ```
 
 Install and verify:
@@ -289,7 +289,14 @@ Run `deactivate` before returning to your original project folder.
 ## Turn it in
 
 Submit your repository's GitHub page URL through the course submission location.
+Use the [submission checklist](../handouts/submission.md) to verify access and evidence.
 **Submission receives credit.**
 
 Keep the work in GitHub: four issues, their linked commits, and short verification
 comments. You do not need a separate report or a duplicate issue-to-commit table.
+
+## Next step
+
+Continue to [Assignment 2: Branches and pull requests](assignment-2-collaboration.md).
+Keep the default-branch workflow above for Assignment 1; the next assignment
+introduces a different workflow deliberately.

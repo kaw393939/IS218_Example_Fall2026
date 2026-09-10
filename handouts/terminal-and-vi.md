@@ -88,7 +88,7 @@ If you have done this exercise before, use a new filename such as
 5. Reopen it with `vi practice.txt`, press `i`, and add an unwanted word.
 6. Press `Esc`, type `:q!`, and press Enter. Run `cat practice.txt` again and
    confirm the unwanted edit was discarded.
-7. Save this terminal output and your practice file for Assignment 0. Run `code .`
+7. Save this terminal output and your practice file if the extension is assigned. Run `code .`
    to open the same folder in VS Code. Locate your saved file.
 
 Explain the difference between saving and quitting, and between normal and

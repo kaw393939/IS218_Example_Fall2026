@@ -86,3 +86,33 @@ Deactivate the verification environment before returning to your original
 working copy. Correct the README there, review the diff, commit with issue 4's
 number, and push. Use a new destination such as `python-setup-check-2` for the
 next clone. Record the corrected commit link and successful check in issue 4.
+
+## You are on the wrong branch or remote
+
+Run `pwd`, `git status`, `git branch --show-current`, and `git remote -v` before
+changing anything. Compare the owner and repository with your assignment URL.
+If the remote is wrong, copy the intended SSH URL and run
+`git remote set-url origin YOUR_SSH_URL` from the correct repository. If `origin`
+is missing, use `git remote add origin YOUR_SSH_URL` instead. Inspect again.
+
+For uncommitted work on the wrong branch, a new branch at the same commit can keep
+it with `git switch -c fix/my-task`; inspect status afterward. If commits already
+landed on the wrong branch, stop and identify whether they were pushed before
+choosing a recovery method. Do not reset shared history to make a screenshot clean.
+
+## A pull refuses to fast-forward
+
+Save your current work appropriately, then inspect `git fetch origin` and
+`git log --oneline --graph --all -12`. Local and remote branches may both contain
+new commits. Coordinate with the reviewer and follow the project's merge workflow;
+a refused fast-forward is not a reason to force-push. The
+[recovery lab](../labs/recovery.md) provides a disposable merge-conflict exercise.
+
+## Applying a stash reports conflicts
+
+Run `git status`, inspect the conflicted files, resolve the intended content, and
+stage the resolved paths. A failed `stash pop` retains its stash entry. Do not pop
+again onto the partially restored work. Review and commit the recovered change,
+then inspect `git stash list` before dropping the verified entry. There is no
+`git stash --abort`; do not discard working files without checking what was there
+before the apply. Practice first in the [stash lab](../labs/stashes.md).

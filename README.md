@@ -1,106 +1,46 @@
 # IS218: Introduction to Professional Programming
 
-Hello World
+Learn a repeatable workflow: define a task, make a focused change, test it,
+record it in Git, and verify the result on GitHub.
 
 ## Start here
 
-Build on your Python and Git experience using a repository in your **personal
-GitHub account**. Assignment 0 shows you how to create it.
+Use VS Code and your own GitHub repository. Choose **one** setup route.
+Windows students run project commands in Ubuntu under WSL2; Mac students use
+macOS Terminal. Existing Linux users should check distribution-specific setup
+with the instructor, then use the shared terminal and Python exercises.
 
-**Create an issue → make and test the change → commit with its issue number →
-push → verify and close the issue.**
+| Order | Lesson | You are finished when… |
+| --- | --- | --- |
+| 0 | [Mac setup](assignments/assignment-0-mac.md) or [Windows/WSL setup](assignments/assignment-0-windows.md) | Python 3.12, Git, VS Code, SSH, and your own repository work. |
+| 1 | [Issues, commits, and pytest](assignments/assignment-1-python-pytest.md) | Four issues have linked commits and verification; your fresh clone passes at least two tests. |
+| 2 | [Branches and pull requests](assignments/assignment-2-collaboration.md) | A tested change is reviewed and merged through a pull request. |
+| 3 | [Managing stashes](labs/stashes.md) | You can inspect, restore, and remove the correct saved work. |
+| 4 | [Recovering from mistakes](labs/recovery.md) | You can unstage changes, resolve a conflict, and revert a shared commit. |
+| 5 | [Staging and commit shortcuts](labs/staging-and-commits.md) | You can predict what a commit includes, including with `-am`. |
+| 6 | [Automated tests](assignments/assignment-3-automation.md) | A pull request runs tests automatically and a deliberate failure is detected. |
 
-Use VS Code for daily work. The vi exercise is a short terminal introduction.
-These are practice assignments: submit the requested work to receive credit.
+Assignment 1 intentionally uses the default branch. Assignment 2 introduces
+branches and pull requests. Later labs use disposable local repositories so
+practice does not change your assignment history. Submit work where your
+instructor directs; follow the [submission and access checklist](handouts/submission.md).
 
-Choose **one** setup assignment for your computer:
+## Reference library
 
-- **[Assignment 0 for Windows](assignments/assignment-0-windows.md)** — Set up Ubuntu under WSL2 and your development tools.
-- **[Assignment 0 for Mac](assignments/assignment-0-mac.md)** — Set up Homebrew and your development tools in macOS Terminal.
+- [Terminal navigation and file operations](handouts/linux-macos-basics.md)
+- [GitHub SSH for Mac](handouts/github-ssh-mac.md) · [GitHub SSH for Windows/WSL](handouts/github-ssh-windows.md)
+- [Git commands and real-life examples](handouts/git-basics.md)
+- [Troubleshooting](handouts/project-troubleshooting.md)
+- [Optional terminal and vi practice](handouts/terminal-and-vi.md)
+- [Optional Python version management](labs/python-versions.md)
 
-After completing your platform's Assignment 0, everyone continues to
-**[Assignment 1 — Python Project with GitHub Issues and pytest](assignments/assignment-1-python-pytest.md)**.
-**Create four GitHub issues before coding. Each issue needs its own linked
-commit(s) and verification comment before you close it.**
+## Instructor example
 
-Assignment 0 covers Git, Python version selection, SSH, VS Code, and terminal
-practice. If you get stuck, use the [troubleshooting reference](handouts/project-troubleshooting.md).
+[Run the minimal Python example](handouts/run-example.md) to see `add` and one
+supplied test. It is a demonstration, not your completed assignment. Assignment 1
+requires your own second test and issue history. Keep the example small so the
+workflow remains visible.
 
-## Example project
-
-This minimal Python project demonstrates an `add` function and one pytest test.
-Tested with Python 3.12.7.
-
-This is the instructor's baseline example, with one supplied test. Complete assignment work in your own
-personal GitHub repository; running this example alone does not complete the four
-issues required by Assignment 1. Your submission adds at least one independently
-designed test, so its final result must be **at least two passing tests**. The
-extra test is intentionally not supplied here.
-
-```text
-.
-├── README.md          # Project overview and setup instructions
-├── .gitignore         # Excludes local environments and generated caches
-├── requirements.txt   # Project dependency: pytest
-├── app.py             # The add function
-└── tests/
-    └── test_app.py    # One test of add
-```
-
-The `assignments/` and `handouts/` folders contain the course instructions.
-
-## Run the example
-
-Prerequisites: complete your platform's Assignment 0. To try this example, clone
-it into a new folder from macOS Terminal or Ubuntu under WSL2:
-
-```bash
-mkdir -p ~/projects
-cd ~/projects
-git clone git@github.com:kaw393939/IS218_Example_Fall2026.git is218-example
-cd is218-example
-```
-
-If already cloned, open that existing folder instead. The **repository root** is
-the folder containing this README, `app.py`, and the hidden `.git` directory.
-Run all remaining commands there.
-
-Create and activate a virtual environment on macOS, Linux, or Ubuntu in WSL2:
-
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-Windows students run these commands inside Ubuntu under WSL2.
-
-Reactivate the environment when opening a new terminal. The local `.venv`
-directory is ignored by Git because each developer recreates it locally.
-Python's `__pycache__/` and pytest's `.pytest_cache/` contain generated files
-and are also ignored.
-
-With the environment activated, install dependencies and run the test:
-
-```bash
-python -m pip install -r requirements.txt
-python -m pytest
-```
-
-Expect `1 passed`. Use `python -m pytest` so the repository root is included in
-Python's import path and the test can import `app.py` without extra configuration.
-
-To check that the test detects an incorrect result, temporarily change the
-expected value in `tests/test_app.py` from `5` to `6`, run the test and confirm it
-fails, then restore `5` and run it again to confirm it passes.
-
-To return to this example in a new terminal after setup, use its existing
-folder and environment:
-
-```bash
-cd ~/projects/is218-example
-source .venv/bin/activate
-python -m pytest
-```
-
-Substitute your folder path if different. Run `deactivate` when finished to
-leave the virtual environment.
+Course baseline: Python **3.12.x**, pytest **8.4.2**. Instructor automation is configured to test
+Python 3.12 on Linux and macOS and check local documentation links.
+[Maintenance and validation](instructor/maintenance.md) explains how to update it.
